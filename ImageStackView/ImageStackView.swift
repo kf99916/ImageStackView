@@ -17,8 +17,8 @@ struct Layout {
 
 open class ImageStackView: UIView {
 
-    fileprivate var imageViews: [UIImageView] = []
-    fileprivate let maxNumViews = 5
+    open fileprivate(set) var imageViews: [UIImageView] = []
+    open var (maxNumViews, numViewsInFirstStack) = (5, 1)
     open var spacing: CGFloat = 5
     
     /*
@@ -33,26 +33,26 @@ open class ImageStackView: UIView {
 
 // MARK: - Public Methods
 public extension ImageStackView {
-    func add(imageView: UIImageView) {
+    func add(imageView: UIImageView, gestureRecognizers: [UIGestureRecognizer] = []) {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.isUserInteractionEnabled = true
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(imageViewDidTap(sender:)))
-        imageView.addGestureRecognizer(singleTap)
+        if gestureRecognizers.count > 0 {
+            imageView.isUserInteractionEnabled = true
+            for gestureRecognizer in gestureRecognizers {
+                imageView.addGestureRecognizer(gestureRecognizer)
+            }
+        }
+        
         imageViews.append(imageView)
         updateViews()
     }
     
-    func remove(at index: Int) {
-        imageViews.remove(at: index)
+    func remove(imageView: UIImageView) {
+        guard let firstIndex = imageViews.firstIndex(of: imageView) else {
+            return
+        }
+        imageViews.remove(at: firstIndex)
         updateViews()
-    }
-}
-
-// MARK: - @objc
-@objc extension ImageStackView {
-    func imageViewDidTap(sender: AnyObject) {
-        
     }
 }
 
@@ -69,10 +69,11 @@ fileprivate extension ImageStackView {
         
         var groupViews: [[UIView]] = []
         if imageViews.count < maxNumViews {
-            groupViews = imageViews.count == 1 ? [imageViews] : [Array(imageViews[0..<1]), Array(imageViews[1..<imageViews.count])]
+            groupViews = imageViews.count <= numViewsInFirstStack ? [imageViews] : [Array(imageViews[0..<numViewsInFirstStack]), Array(imageViews[numViewsInFirstStack..<imageViews.count])]
         }
         else {
-            groupViews = [Array(imageViews[0..<2]), Array(imageViews[2..<maxNumViews])]
+            let numViewsInGroup = Int(Double(maxNumViews) / 2)
+            groupViews = [Array(imageViews[0..<numViewsInGroup]), Array(imageViews[numViewsInGroup..<maxNumViews])]
         }
         
         let subStackViewAxis: NSLayoutConstraint.Axis = imageViews.count < maxNumViews ? .vertical : .horizontal

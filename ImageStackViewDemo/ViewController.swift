@@ -44,11 +44,22 @@ extension ViewController {
     }
 }
 
+// MARK: - @objc
+@objc extension ViewController {
+    func imageViewDidClick(sender: AnyObject) {
+        guard let gestureRecongnizer = sender as? UITapGestureRecognizer, let imageView = gestureRecongnizer.view as? UIImageView else {
+            return
+        }
+        
+        imageStackView.remove(imageView: imageView)
+    }
+}
+
 // MARK: - Fileprivate Methods
 fileprivate extension ViewController {
     func pickerController(_ picker: UIImagePickerController, didSelect image: UIImage) {
         picker.dismiss(animated: true, completion: nil)
         let imageView = UIImageView(image: image)
-        imageStackView.add(imageView: imageView)
+        imageStackView.add(imageView: imageView, gestureRecognizers: [UITapGestureRecognizer(target: self, action: #selector(imageViewDidClick(sender:)))])
     }
 }
