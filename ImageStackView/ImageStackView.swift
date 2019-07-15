@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct Layout {
-    let left: UInt
-    let right: UInt
-    let up: UInt
-    let down: UInt
-}
-
 open class ImageStackView: UIView {
 
     open fileprivate(set) var imageViews: [UIImageView] = []
