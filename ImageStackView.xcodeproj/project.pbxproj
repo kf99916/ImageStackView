@@ -15,7 +15,21 @@
 		AAB92F7822DC87E800AB58DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAB92F7622DC87E800AB58DF /* LaunchScreen.storyboard */; };
 		AAB92F7E22DC880A00AB58DF /* ImageStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB92F7D22DC880A00AB58DF /* ImageStackView.swift */; };
 		AAB92F8222DCBD9500AB58DF /* ImageStackView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAB92F5C22DC874B00AB58DF /* ImageStackView.framework */; };
+		AAB92F8522DCD71000AB58DF /* ImageStackView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAB92F5C22DC874B00AB58DF /* ImageStackView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AAB92F8422DCD70700AB58DF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AAB92F8522DCD71000AB58DF /* ImageStackView.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AAB92F5C22DC874B00AB58DF /* ImageStackView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageStackView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +152,7 @@
 				AAB92F6722DC87E700AB58DF /* Sources */,
 				AAB92F6822DC87E700AB58DF /* Frameworks */,
 				AAB92F6922DC87E700AB58DF /* Resources */,
+				AAB92F8422DCD70700AB58DF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -298,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -356,7 +371,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
