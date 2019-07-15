@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageStackViewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hq-y5-3bm" customClass="ImageStackView" customModule="ImageStackView">
+                                <rect key="frame" x="0.0" y="352" width="414" height="310.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Hq-y5-3bm" secondAttribute="height" multiplier="4:3" id="ohE-el-t9r"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZs-dS-RJo">
+                                <rect key="frame" x="154" y="235" width="106" height="30"/>
+                                <state key="normal" title="Choose Images"/>
+                                <connections>
+                                    <action selector="imagePickerButtonDidClickWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rmt-gH-wTa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0Hq-y5-3bm" secondAttribute="trailing" id="Jas-Pc-XrB"/>
+                            <constraint firstItem="0Hq-y5-3bm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JeQ-W5-IsE"/>
+                            <constraint firstItem="0Hq-y5-3bm" firstAttribute="top" secondItem="hZs-dS-RJo" secondAttribute="bottom" constant="87" id="Wbx-0f-IqL"/>
+                            <constraint firstItem="hZs-dS-RJo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="191" id="cjE-zt-qbr"/>
+                            <constraint firstItem="hZs-dS-RJo" firstAttribute="centerX" secondItem="0Hq-y5-3bm" secondAttribute="centerX" id="xIa-j5-D5f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageStackView" destination="0Hq-y5-3bm" id="9mC-HI-Mic"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+    </scenes>
+</document>
