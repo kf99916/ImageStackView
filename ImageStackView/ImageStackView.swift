@@ -65,26 +65,56 @@ fileprivate extension ImageStackView {
             groupViews = imageViews.count <= numViewsInFirstStack ? [imageViews] : [Array(imageViews[0..<numViewsInFirstStack]), Array(imageViews[numViewsInFirstStack..<imageViews.count])]
         }
         else {
+            let diffNumViews = imageViews.count - maxNumViews
+            if diffNumViews > 0 {
+                let imageViewInMax = imageViews[maxNumViews - 1]
+                addBlackOverlay(view: imageViewInMax, text: String(format: "+ %d", diffNumViews))
+            }
+            
             let numViewsInGroup = Int(Double(maxNumViews) / 2)
             groupViews = [Array(imageViews[0..<numViewsInGroup]), Array(imageViews[numViewsInGroup..<maxNumViews])]
         }
         
         let subStackViewAxis: NSLayoutConstraint.Axis = imageViews.count < maxNumViews ? .vertical : .horizontal
         let stackViews = groupViews.map { groupView -> UIStackView in
-            return newStackView(subViews: groupView, axis: subStackViewAxis)
+            return newStackView(subviews: groupView, axis: subStackViewAxis)
         }
         
-        let allStackView = newStackView(subViews: stackViews, axis: subStackViewAxis == .horizontal ? .vertical : .horizontal)
-        allStackView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: frame.size)
+        let allStackView = newStackView(subviews: stackViews, axis: subStackViewAxis == .horizontal ? .vertical : .horizontal)
         addSubview(allStackView)
     }
     
-    func newStackView(subViews: [UIView], axis: NSLayoutConstraint.Axis) -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: subViews)
+    func newStackView(subviews: [UIView], axis: NSLayoutConstraint.Axis) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: subviews)
         stackView.axis = axis
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.spacing = spacing
+        stackView.frame = CGRect(origin: CGPoint.zero, size: frame.size)
         return stackView
+    }
+    
+    func addBlackOverlay(view: UIView, text: String) {
+        for subview in view.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        guard !text.isEmpty else {
+            return
+        }
+        
+        let frame = CGRect(origin: CGPoint.zero, size: view.frame.size)
+        let blackOverlay = UIView(frame: frame)
+        blackOverlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        view.addSubview(blackOverlay)
+        blackOverlay.bindEdgesToSuperview()
+        
+        let label = UILabel(frame: frame)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.text = text
+        view.addSubview(label)
+        label.bindEdgesToSuperview()
     }
 }
