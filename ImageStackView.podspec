@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ImageStackView'
   s.version          = '1.0'
-  s.summary          = 'A image stack view'
+  s.summary          = 'A beautiful image stack view'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = 'ImageStackView is a image stack view to show your selected images.'
+  s.description      = 'ImageStackView is a beautiful image stack view to show your selected images.'
 
   s.homepage         = 'https://github.com/kf99916/ImageStackView'
   s.screenshots      = ['https://raw.githubusercontent.com/kf99916/ImageStackView/master/screenshots/imageStackView 1.png', 'https://raw.githubusercontent.com/kf99916/ImageStackView/master/screenshots/imageStackView 2.png']
