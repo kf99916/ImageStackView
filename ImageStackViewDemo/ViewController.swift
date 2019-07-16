@@ -58,7 +58,6 @@ extension ViewController {
 // MARK: - Fileprivate Methods
 fileprivate extension ViewController {
     func pickerController(_ picker: UIImagePickerController, didSelect image: UIImage) {
-        picker.dismiss(animated: true, completion: nil)
         let imageView = UIImageView(image: image)
         imageStackView.add(imageView: imageView, gestureRecognizers: [UITapGestureRecognizer(target: self, action: #selector(imageViewDidClick(sender:)))])
     }
