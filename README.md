@@ -8,8 +8,8 @@ ImageStackView is a beautiful image stack view to show your selected images..
 [![Platform](https://img.shields.io/cocoapods/p/ImageStackView.svg)](https://github.com/kf99916/ImageStackView)
 [![GitHub license](https://img.shields.io/github/license/kf99916/ImageStackView.svg)](https://github.com/kf99916/ImageStackView/blob/master/LICENSE)
 
-![ImageStackView](/screenshots/ImageStackView 1.png 'ImageStackView')
-![ImageStackView](/screenshots/ImageStackView 2.png 'ImageStackView')
+![ImageStackView](/screenshots/ImageStackView-1.png 'ImageStackView')
+![ImageStackView](/screenshots/ImageStackView-2.png 'ImageStackView')
 
 ## Requirements
 

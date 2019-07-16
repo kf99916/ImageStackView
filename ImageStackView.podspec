@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.description      = 'ImageStackView is a beautiful image stack view to show your selected images.'
 
   s.homepage         = 'https://github.com/kf99916/ImageStackView'
-  s.screenshots      = ['https://raw.githubusercontent.com/kf99916/ImageStackView/master/screenshots/imageStackView 1.png', 'https://raw.githubusercontent.com/kf99916/ImageStackView/master/screenshots/imageStackView 2.png']
+  s.screenshots      = ['https://raw.githubusercontent.com/kf99916/ImageStackView/master/screenshots/imageStackView-1.png', 'https://raw.githubusercontent.com/kf99916/ImageStackView/master/screenshots/imageStackView-2.png']
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Zheng-Xiang Ke' => 'kf99916@gmail.com' }
   s.source           = { :git => 'https://github.com/kf99916/ImageStackView.git', :tag => s.version.to_s }
